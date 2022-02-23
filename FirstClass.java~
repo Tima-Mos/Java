@@ -22,20 +22,20 @@ public class FirstClass {
         int n = console.nextInt();
         Vector vec = new Vector(n);
         vec.See(vec.Vec, 3);
-        vec.Update(vec.Vec, 3, 15);
-        vec.Print(vec.Vec);
-        vec.Length(vec.Vec);
-        vec.Min(vec.Vec);
-        vec.Max(vec.Vec);
-        vec.Sort(vec.Vec);
-        vec.Print(vec.Vec);
-        System.out.println(vec.euclidean_norm(vec.Vec));
-        System.out.println(vec.UmnNum(vec.Vec, 3));
-        Vector vec2 = new Vector(n);
-        vec.Print(vec2.Vec);
-        System.out.println(vec.Plus(vec.Vec, vec2.Vec));
-        System.out.println(vec.Scolar(vec.Vec, vec2.Vec));
-        vec.Print(vec.Vec);
+//        vec.Update(vec.Vec, 3, 15);
+//        vec.Print(vec.Vec);
+//        vec.Length(vec.Vec);
+//        vec.Min(vec.Vec);
+//        vec.Max(vec.Vec);
+//        vec.Sort(vec.Vec);
+//        vec.Print(vec.Vec);
+//        System.out.println(vec.euclidean_norm(vec.Vec));
+//        System.out.println(vec.UmnNum(vec.Vec, 3));
+//        Vector vec2 = new Vector(n);
+//        vec.Print(vec2.Vec);
+//        System.out.println(vec.Plus(vec.Vec, vec2.Vec));
+//        System.out.println(vec.Scolar(vec.Vec, vec2.Vec));
+//        vec.Print(vec.Vec);
     }
 
     public static void printkk(IDK[] kk){

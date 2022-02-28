@@ -1,3 +1,7 @@
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,15 +94,29 @@ public class FirstClass {
         System.out.println("ща всё будет");
         printkk(Fi);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner console = new Scanner(System.in);
         int n = console.nextInt();
-        if (n == 2){
-            Lab2();
-        } else if (n == 3){
-            Lab3();
-        } else {
-            Exeptions();
+        switch (n) {
+            case 2:
+                Lab2();
+                break;
+            case 3:
+                Lab3();
+                break;
+            case 4:
+                var s = "";
+                FileOutputStream out = new FileOutputStream("D:/text.txt");
+                FileWriter outi = new FileWriter("D:/texti.txt");
+                Magaz mag = new Magaz(6, "булочки", 4);
+                //mag.output(out);
+                //mag.write(outi);
+                InAndOut.output(mag, out);
+                InAndOut.write(mag, outi);
+                break;
+            default:
+                Exeptions();
+                break;
         }
     }
 }

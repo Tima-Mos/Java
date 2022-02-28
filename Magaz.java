@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
@@ -28,6 +31,15 @@ public class Magaz implements IDK {
     public void Print(){
         String SVec = Arrays.toString(this.ItemsOnShelf);
         System.out.println(SVec);
+    }
+    public void output(OutputStream out) throws IOException {
+        var data = this.theme;
+        byte[] bytes = data.getBytes();
+        out.write(bytes);
+    }
+    public void write(Writer out) throws IOException {
+        out.write(this.theme);
+        out.flush();
     }
     public void SeeItem(int pos){
         if (pos > this.ItemsOnShelf.length){

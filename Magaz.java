@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Magaz implements IDK {
+public class Magaz implements IDK, java.io.Serializable {
     int[] ItemsOnShelf;
     String theme;
     int Reserved;
@@ -33,9 +33,9 @@ public class Magaz implements IDK {
         System.out.println(SVec);
     }
     public void output(OutputStream out) throws IOException {
-        var data = this.theme;
-        byte[] bytes = data.getBytes();
+        byte[] bytes = this.theme.getBytes();
         out.write(bytes);
+        out.flush();
     }
     public void write(Writer out) throws IOException {
         out.write(this.theme);

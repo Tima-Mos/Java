@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Semants implements IDK {
+public class Semants implements IDK, java.io.Serializable {
     int[] ItemsOnShelf;
     String theme;
     int Reserved;

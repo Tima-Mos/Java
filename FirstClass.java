@@ -1,7 +1,4 @@
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.OutputStream;
-import java.io.Writer;
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,12 +104,26 @@ public class FirstClass {
             case 4:
                 var s = "";
                 FileOutputStream out = new FileOutputStream("D:/text.txt");
+                FileInputStream in = new FileInputStream("D:/text.txt");
                 FileWriter outi = new FileWriter("D:/texti.txt");
+                BufferedReader ini = new BufferedReader(new FileReader("D:/texti.txt"));
                 Magaz mag = new Magaz(6, "булочки", 4);
-                //mag.output(out);
-                //mag.write(outi);
+                mag.output(out);
+                mag.write(outi);
                 InAndOut.output(mag, out);
                 InAndOut.write(mag, outi);
+                System.out.println(InAndOut.input(in));
+                System.out.println(InAndOut.readIDK(ini));
+                break;
+            case 5:
+                Magaz maga = new Magaz(6, "булочки", 4);
+                ObjectOutputStream outo = new ObjectOutputStream(new FileOutputStream("D:/magaz.ser"));
+                ObjectInputStream ino = new ObjectInputStream(new FileInputStream("D:/magaz.ser"));
+                InAndOut.serializeIDK(maga, outo);
+                IDK it = null;
+                it = InAndOut.deserializeIDK(ino);
+                System.out.println(it.toString());
+                //System.out.println(InAndOut.deserializeIDK(ino).toString());
                 break;
             default:
                 Exeptions();

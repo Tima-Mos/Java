@@ -95,6 +95,25 @@ public class FirstClass {
         Scanner console = new Scanner(System.in);
         int n = console.nextInt();
         switch (n) {
+            case 1:
+                SecondClass second=new SecondClass();
+                System.out.println(second.getA());
+                System.out.println(second.getB());
+                System.out.println();
+
+                second.setA(10);
+                second.setB(4);
+
+                System.out.println(second.getA());
+                System.out.println(second.getB());
+                System.out.println();
+
+                System.out.println(second.add());
+                System.out.println(second.minusAB());
+                System.out.println(second.minusBA());
+                System.out.println(second.multiplication());
+                System.out.println();
+                break;
             case 2:
                 Lab2();
                 break;

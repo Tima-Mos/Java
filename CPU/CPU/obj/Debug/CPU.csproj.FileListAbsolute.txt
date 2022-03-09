@@ -1,0 +1,10 @@
+C:\Users\timmo\source\repos\CPU\CPU\bin\Debug\CPU.exe.config
+C:\Users\timmo\source\repos\CPU\CPU\bin\Debug\CPU.exe
+C:\Users\timmo\source\repos\CPU\CPU\bin\Debug\CPU.pdb
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.csprojAssemblyReference.cache
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.Form1.resources
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.Properties.Resources.resources
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.csproj.GenerateResource.cache
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.csproj.CoreCompileInputs.cache
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.exe
+C:\Users\timmo\source\repos\CPU\CPU\obj\Debug\CPU.pdb

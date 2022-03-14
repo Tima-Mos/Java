@@ -7,6 +7,12 @@ public class RunnableWrite implements Runnable{
 
     @Override
     public void run(){
-          bruh.write();
+        try {
+            for (int i = 0; i < bruh.i.ItemsOnShelf.length; i++)
+            bruh.write();
+        } catch (InterruptedException exc) {
+            System.out.println(exc.getMessage());
+            exc.printStackTrace();
+        }
     }
 }

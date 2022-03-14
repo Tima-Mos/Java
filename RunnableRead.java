@@ -7,6 +7,12 @@ public class RunnableRead implements Runnable{
 
     @Override
     public void run(){
-            bruh.read();
+        try {
+            for (int i = 0; i < bruh.i.ItemsOnShelf.length; i++)
+                bruh.read();
+        } catch (InterruptedException exc) {
+            System.out.println(exc.getMessage());
+            exc.printStackTrace();
+        }
     }
 }

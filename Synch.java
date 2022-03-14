@@ -1,18 +1,33 @@
 public class Synch {
     Magaz i;
-    volatile int curent;
+    volatile int curent = 0;
+    private volatile boolean isElSet = false;
+
 
     public Synch(Magaz i){
         this.i = i;
     }
 
-    public synchronized void write(){
-        i.ItemsOnShelf[curent] = (int) (4 + Math.random() * (20));
-        System.out.println("Write: " + i.ItemsOnShelf[curent]);
+    public void write() throws InterruptedException {
+        synchronized (i) {
+            while (isElSet) {
+                i.wait();
+            }
+            i.ItemsOnShelf[curent] = (int) (4 + Math.random() * (20));
+            isElSet = true;
+            System.out.println("Write: " + i.ItemsOnShelf[curent]);
+            i.notifyAll();
+        }
     }
 
-    public synchronized int read(){
-        System.out.println("Read: " + i.ItemsOnShelf[curent]);
-        return i.ItemsOnShelf[curent++];
+    public void read() throws InterruptedException{
+        synchronized (i) {
+            while (!isElSet) {
+                i.wait();
+            }
+            isElSet = false;
+            System.out.println("Read: " + i.ItemsOnShelf[curent++]);
+            i.notifyAll();
+        }
     }
 }

@@ -107,12 +107,10 @@ public class FirstClass {
         Synch hop = new Synch(ziz);
         RunnableWrite write = new RunnableWrite(hop);
         RunnableRead read = new RunnableRead(hop);
-        for (int i = 0; i<ziz.ItemsOnShelf.length; i++){
-            Thread wr = new Thread(write);
-            Thread rd = new Thread(read);
-            wr.start();
-            rd.start();
-        }
+            Thread rw = new Thread(write);
+            Thread rr = new Thread(read);
+            rw.start();
+            rr.start();
     }
 
     public static void main(String[] args) throws Exception {

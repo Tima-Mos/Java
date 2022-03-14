@@ -11,14 +11,17 @@ public class Magaz implements IDK, java.io.Serializable {
     int Reserved;
     int AllItems;
     String Type = "Magaz";
-    public Magaz(int count, String theme, int res){
+
+    public Magaz(int count, String theme, int res, boolean fill){
         this.ItemsOnShelf = new int[count];
         this.theme = theme;
         this.Reserved = res;
-        for (int i = 0; i<count; i++) {
-            int a = (int) (4 + Math.random() * (20));
-            this.ItemsOnShelf[i] = a;
-            this.AllItems += a;
+        if (fill) {
+            for (int i = 0; i < count; i++) {
+                int a = (int) (4 + Math.random() * (20));
+                this.ItemsOnShelf[i] = a;
+                this.AllItems += a;
+            }
         }
     }
     public Magaz(){

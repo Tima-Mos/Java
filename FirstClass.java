@@ -11,7 +11,7 @@ public class FirstClass {
         Scanner console = new Scanner(System.in);
         System.out.println("for Magaz: ");
         int n = console.nextInt();
-        Magaz mag = new Magaz(5, "колбаски", 3);
+        Magaz mag = new Magaz(5, "колбаски", 3, true);
         mag.SeeItem(n);
         System.out.println("for Semants: ");
         n = console.nextInt();
@@ -48,15 +48,15 @@ public class FirstClass {
     public static void Lab3(){
         Scanner console = new Scanner(System.in);
         int n = console.nextInt();
-        Magaz se = new Magaz(n, "шишки", 4);
+        Magaz se = new Magaz(n, "шишки", 4, true);
         Semants sis = new Semants();
         Vector.Print(se.ItemsOnShelf);
         System.out.println(se);
         IDK[] kk = new IDK[]{
                 new Semants(5, "жужло", 3),
-                new Magaz(8, "колбаски", 2),
+                new Magaz(8, "колбаски", 2, true),
                 new Semants(5, "жужло", 3),
-                new Magaz(6, "булочки", 4)
+                new Magaz(6, "булочки", 4, true)
         };
         printkk(kk);
         List<IDK> where = new ArrayList<IDK>();
@@ -91,6 +91,30 @@ public class FirstClass {
         System.out.println("ща всё будет");
         printkk(Fi);
     }
+
+    public static void lab5_1(){
+        Magaz obj = new Magaz(6, "булочки", 4, false);
+        Thread1 thread1 = new Thread1(obj);
+        thread1.setPriority(8);
+        thread1.start();
+        Thread2 thread2 = new Thread2(obj);
+        thread2.setPriority(2);
+        thread2.start();
+    }
+
+    public static void lab5_2(){
+        Magaz ziz = new Magaz(6, "булочки", 4, false);
+        Synch hop = new Synch(ziz);
+        RunnableWrite write = new RunnableWrite(hop);
+        RunnableRead read = new RunnableRead(hop);
+        for (int i = 0; i<ziz.ItemsOnShelf.length; i++){
+            Thread wr = new Thread(write);
+            Thread rd = new Thread(read);
+            wr.start();
+            rd.start();
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         Scanner console = new Scanner(System.in);
         int n = console.nextInt();
@@ -120,13 +144,13 @@ public class FirstClass {
             case 3:
                 Lab3();
                 break;
-            case 4:
+            case 41:
                 var s = "";
                 FileOutputStream out = new FileOutputStream("D:/text.txt");
                 FileInputStream in = new FileInputStream("D:/text.txt");
                 FileWriter outi = new FileWriter("D:/texti.txt");
                 BufferedReader ini = new BufferedReader(new FileReader("D:/texti.txt"));
-                Magaz mag = new Magaz(6, "булочки", 4);
+                Magaz mag = new Magaz(6, "булочки", 4, true);
                 mag.output(out);
                 mag.write(outi);
                 InAndOut.output(mag, out);
@@ -134,15 +158,20 @@ public class FirstClass {
                 System.out.println(InAndOut.input(in));
                 System.out.println(InAndOut.readIDK(ini));
                 break;
-            case 5:
-                Magaz maga = new Magaz(6, "булочки", 4);
+            case 42:
+                Magaz maga = new Magaz(6, "булочки", 4, true);
                 ObjectOutputStream outo = new ObjectOutputStream(new FileOutputStream("D:/magaz.ser"));
                 ObjectInputStream ino = new ObjectInputStream(new FileInputStream("D:/magaz.ser"));
                 InAndOut.serializeIDK(maga, outo);
                 IDK it = null;
                 it = InAndOut.deserializeIDK(ino);
                 System.out.println(it.toString());
-                //System.out.println(InAndOut.deserializeIDK(ino).toString());
+                break;
+            case 51:
+                lab5_1();
+                break;
+            case 52:
+                lab5_2();
                 break;
             default:
                 Exeptions();

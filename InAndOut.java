@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
+
 public class InAndOut {
     public static void output(IDK o, OutputStream out) throws IOException {
         var data = o.toString().getBytes();
@@ -43,5 +44,8 @@ public class InAndOut {
             c.printStackTrace();
             return null;
         }
+    }
+    public static IDK Syncronized (IDK i){
+        return (IDK) new SynchronizedIDKClass();
     }
 }

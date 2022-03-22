@@ -171,6 +171,27 @@ public class FirstClass {
             case 52:
                 lab5_2();
                 break;
+            case 53:
+                IDK synch = new SynchronizedIDKClass();
+                System.out.println(InAndOut.Syncronized(synch));
+                break;
+            case 61:
+                Magaz sus = new Magaz(6, "булочки", 4, false);
+               /* for (;;){
+
+                }*/
+                break;
+            case 64:
+                IDK first = InAndOut.createInstance();
+                InAndOut.setFactory("Semants");
+                IDK seco = InAndOut.createInstance();
+                System.out.println(first.toString());
+                System.out.println(seco.toString());
+                break;
+            case 7:
+                GuessApp app = new GuessApp();
+                app.setVisible(true);
+                break;
             default:
                 Exeptions();
                 break;

@@ -115,5 +115,6 @@ public class Magaz implements IDK, java.io.Serializable {
         int result = Objects.hash(theme, Reserved, AllItems);
         result = 31 * result + Arrays.hashCode(ItemsOnShelf);
         return result;
+
     }
 }

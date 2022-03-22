@@ -3,6 +3,17 @@ import java.nio.charset.StandardCharsets;
 
 
 public class InAndOut {
+    private static IDKFactory factory = new MagazFactory();
+    public static void setFactory(String name){
+        if (name == "Semants"){
+            factory = new SemantsFactory();
+        } else {
+            factory = new MagazFactory();
+        }
+    }
+    public static IDK createInstance(){
+        return factory.create();
+    }
     public static void output(IDK o, OutputStream out) throws IOException {
         var data = o.toString().getBytes();
         out.write(data);
@@ -22,6 +33,7 @@ public class InAndOut {
         String str = in.readLine();
         return str;
     }
+
     public static void serializeIDK(IDK o, ObjectOutputStream out) {
         try {
             out.writeObject(o);
@@ -46,6 +58,6 @@ public class InAndOut {
         }
     }
     public static IDK Syncronized (IDK i){
-        return (IDK) new SynchronizedIDKClass();
+        return (IDK) new SynchronizedIDKClass(i);
     }
 }
